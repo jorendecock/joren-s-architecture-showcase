@@ -4,7 +4,7 @@ import { projects, type Project } from "@/data/projects";
 export const Route = createFileRoute("/projects/$slug")({
   head: ({ params }) => {
     const project = projects.find((p) => p.id === params.slug);
-    const title = project ? `${project.title} — Joren De Cck` : "Project";
+    const title = project ? `${project.title} — Joren De Cock` : "Project";
     return {
       meta: [
         { title },
