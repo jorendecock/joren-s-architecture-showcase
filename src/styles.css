@@ -74,9 +74,9 @@
   }
 }
 
-/* Markeer-achtige nav highlight zoals op Olivier Goethals */
+/* actieve nav: lijntje onder de titel (geen zwarte balk) */
 @utility nav-active {
-  background-color: var(--color-foreground);
-  color: var(--color-background);
-  padding: 0 0.35em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
 }
