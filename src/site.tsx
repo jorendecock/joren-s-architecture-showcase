@@ -1,25 +1,78 @@
 // ============================================================
-//  JOREN DE COCK — ALLE INHOUD VAN DE WEBSITE IN 1 BESTAND
+//  JOREN DE COCK — VOLLEDIGE WEBSITE IN 1 BESTAND
 // ============================================================
 //
-//  Hier pas je ALLES aan: projecten, info, lettertype, kleuren,
-//  groottes. Geen ander bestand nodig.
+//  ▸ ALLE inhoud + opmaak staat in dit bestand.
+//  ▸ Je hoeft GEEN AI te gebruiken om aan te passen — gewoon
+//    de waardes hieronder bewerken en opslaan.
 //
-//  - PROJECTEN toevoegen / aanpassen → zie PROJECTS hieronder
-//  - INFO (over jou, foto's, links) → zie INFO hieronder
-//  - LETTERTYPE / KLEUR → zie src/styles.css
+//  --------------------------------------------------------
+//  WAAR STAAT WAT IN DIT BESTAND?
+//  --------------------------------------------------------
+//   1. FOTO / PDF / VIDEO MAPPEN (uitleg waar bestanden zetten)
+//   2. PROJECTEN          → lijst van alle projecten
+//   3. INFO               → tekst + foto's + links
+//   4. INSTELLINGEN       → breedtes per maat (S/M/L/XL)
+//   5. COMPONENTEN        → header, project rij, detail, info
+//      (deze hoef je normaal niet aan te raken)
 //
-//  Foto's: plaats in /public/images/ en verwijs als "/images/x.jpg"
-//  PDF's:  plaats in /public/pdfs/   en verwijs als "/pdfs/x.pdf"
+//  --------------------------------------------------------
+//  1. FOTO / PDF / VIDEO MAPPEN — HOE WERKT HET?
+//  --------------------------------------------------------
+//
+//  Zet je bestanden in de map `public/` van je github repo:
+//
+//     public/
+//       images/
+//         project-01/
+//           cover.jpg
+//           01.jpg
+//           02.jpg
+//         project-02/
+//           cover.jpg
+//           ...
+//         info/
+//           portret.jpg
+//           atelier.jpg
+//       pdfs/
+//         project-01.pdf
+//
+//  In de code verwijs je er dan naar met een pad dat START
+//  met een schuine streep `/`. Bijvoorbeeld:
+//
+//     cover: "/images/project-01/cover.jpg"
+//     pdfs:  [{ label: "plannen", file: "/pdfs/project-01.pdf" }]
+//     videos:["https://www.youtube.com/embed/XXXXX"]   (youtube of vimeo embed)
+//
+//  Wanneer je de site naar github pusht worden deze bestanden
+//  automatisch mee gepubliceerd.
 //
 // ============================================================
 
 import { Link, Outlet, useRouter } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 // ============================================================
-//  1. PROJECTEN
+//  2. PROJECTEN
+// ============================================================
+//
+//  Per project stel je in:
+//    id          → uniek, komt in de url (bv. /projects/atelier)
+//    title       → titel die verschijnt bij hover
+//    year        → jaartal (toont op detailpagina)
+//    location    → plaats (optioneel)
+//    size        → "S" | "M" | "L" | "XL"  (breedte van de foto)
+//    align       → "left" | "center" | "right"  (positie op de rij)
+//    cover       → pad naar coverfoto
+//    description → tekst op de detailpagina (\n\n = nieuwe alinea)
+//    images      → extra foto's op de detailpagina
+//    videos      → embed-urls (youtube/vimeo), optioneel
+//    pdfs        → lijst pdf's, optioneel
+//
+//  Een project toevoegen: kopieer een blok hieronder en pas aan.
+//  Een project verwijderen: verwijder het hele blok.
+//
 // ============================================================
 
 export type ProjectSize = "S" | "M" | "L" | "XL";
@@ -39,79 +92,95 @@ export interface Project {
   pdfs?: { label: string; file: string }[];
 }
 
-// kleine helper zodat elk project automatisch wat voorbeeldfoto's
-// en tekst krijgt (zodat je meteen ziet hoe een detailpagina eruitziet).
-// vervang `images` en `description` per project door je eigen materiaal.
-const SAMPLE_IMAGES = [
+// voorbeeldtekst en voorbeeldfoto's — vervangen door eigen materiaal.
+// de voorbeeldfoto's staan tijdelijk op unsplash zodat je iets ziet.
+// vervang door "/images/<projectmap>/01.jpg" enz. zodra je eigen foto's
+// in public/images/ staan.
+const DEMO = [
   "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=80",
   "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=80",
   "https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=1800&q=80",
   "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=1800&q=80",
   "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=1800&q=80",
 ];
-
-const SAMPLE_TEXT =
-  "korte beschrijving van dit project. vervang deze tekst door je eigen verhaal: het concept, het programma, de site, de materialen.\n\ngebruik een lege regel voor een nieuwe alinea. zo kan je makkelijk meerdere stukken tekst achter elkaar plaatsen zonder iets aan de opmaak te moeten doen.";
+const DEMO_TEXT =
+  "korte beschrijving van dit project. vervang deze tekst door je eigen verhaal: het concept, het programma, de site, de materialen.\n\ngebruik een lege regel voor een nieuwe alinea.";
 
 export const projects: Project[] = [
-  { id: "project-01", title: "atelier aan de leie", year: 2025, location: "gent", size: "XL", align: "left",
-    cover: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1800&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+  {
+    id: "project-01",
+    title: "atelier aan de leie",
+    year: 2025,
+    location: "gent",
+    size: "XL",
+    align: "left",
+    cover: DEMO[0], // vervang door "/images/project-01/cover.jpg"
+    description: DEMO_TEXT,
+    images: DEMO,   // vervang door ["/images/project-01/01.jpg", ...]
+    // videos: ["https://www.youtube.com/embed/XXXXX"],
+    // pdfs:   [{ label: "plannen", file: "/pdfs/project-01.pdf" }],
+  },
   { id: "project-02", title: "houten paviljoen", year: 2025, location: "brussel", size: "M", align: "right",
-    cover: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?w=1400&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    cover: DEMO[4], description: DEMO_TEXT, images: DEMO },
   { id: "project-03", title: "betonnen kapel", year: 2024, location: "antwerpen", size: "L", align: "center",
-    cover: "https://images.unsplash.com/photo-1460472178825-e5240623afd5?w=1600&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    cover: DEMO[3], description: DEMO_TEXT, images: DEMO },
   { id: "project-04", title: "huis op de heuvel", year: 2024, size: "S", align: "left",
     cover: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1200&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-05", title: "stadshal", year: 2024, location: "leuven", size: "M", align: "right",
     cover: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1400&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-06", title: "modulaire woning", year: 2024, size: "L", align: "left",
     cover: "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=1600&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-07", title: "bibliotheek", year: 2023, location: "brugge", size: "XL", align: "right",
     cover: "https://images.unsplash.com/photo-1481026469463-66327c86e544?w=1800&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-08", title: "atelierruimte", year: 2023, size: "M", align: "center",
     cover: "https://images.unsplash.com/photo-1464146072230-91cabc968266?w=1400&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-09", title: "schoolgebouw", year: 2023, location: "kortrijk", size: "L", align: "left",
     cover: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1600&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-10", title: "rijwoning", year: 2023, size: "S", align: "right",
     cover: "https://images.unsplash.com/photo-1494526585095-c41746248156?w=1200&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-11", title: "kerkrestauratie", year: 2022, location: "mechelen", size: "M", align: "left",
     cover: "https://images.unsplash.com/photo-1473177104440-ffee2f376098?w=1400&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-12", title: "stedelijk plein", year: 2022, size: "XL", align: "center",
     cover: "https://images.unsplash.com/photo-1496564203457-11bb12075d90?w=1800&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-13", title: "boshut", year: 2022, size: "S", align: "left",
     cover: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-14", title: "tentoonstellingsruimte", year: 2022, location: "gent", size: "L", align: "right",
     cover: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1600&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-15", title: "loft conversie", year: 2021, size: "M", align: "left",
     cover: "https://images.unsplash.com/photo-1490735891913-40897c6045cf?w=1400&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-16", title: "kustvilla", year: 2021, location: "knokke", size: "L", align: "center",
     cover: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1600&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-17", title: "studio aan het water", year: 2021, size: "S", align: "right",
     cover: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1200&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
   { id: "project-18", title: "eerste ontwerp", year: 2020, size: "M", align: "left",
     cover: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=1400&q=80",
-    description: SAMPLE_TEXT, images: SAMPLE_IMAGES },
+    description: DEMO_TEXT, images: DEMO },
 ];
 
 // ============================================================
-//  2. INFO
+//  3. INFO
+// ============================================================
+//
+//  - about: tekst over jezelf (\n\n = nieuwe alinea)
+//  - photos: lijst foto's met size en align (zoals projecten),
+//            zonder titel — er verschijnt niets bij hover.
+//  - links: knoppen (instagram, email, ...)
+//  - pdfs:  cv of ander document (optioneel)
+//
 // ============================================================
 
 export const info = {
@@ -120,9 +189,9 @@ export const info = {
   about:
     "ik ben joren de cock, architectuurstudent. op deze website verzamel ik werk uit mijn opleiding — projecten, schetsen, modellen en onderzoek.\n\npas deze tekst aan in src/site.tsx.",
   photos: [
-    { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1400&q=80", size: "M" as ProjectSize, align: "left" as ProjectAlign, caption: "portret" },
-    { src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1400&q=80", size: "L" as ProjectSize, align: "right" as ProjectAlign, caption: "atelier" },
-    { src: "https://images.unsplash.com/photo-1542359649-31e03cd4d909?w=1400&q=80", size: "S" as ProjectSize, align: "center" as ProjectAlign, caption: "schets" },
+    { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1400&q=80", size: "M" as ProjectSize, align: "left" as ProjectAlign },
+    { src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1400&q=80", size: "L" as ProjectSize, align: "right" as ProjectAlign },
+    { src: "https://images.unsplash.com/photo-1542359649-31e03cd4d909?w=1400&q=80", size: "S" as ProjectSize, align: "center" as ProjectAlign },
   ],
   links: [
     { label: "instagram", url: "https://www.instagram.com/" },
@@ -132,22 +201,34 @@ export const info = {
 };
 
 // ============================================================
-//  3. WEERGAVE
+//  4. INSTELLINGEN — breedte per maat
+// ============================================================
+//
+//  Pas hier de percentages aan als je een maat breder of smaller
+//  wil. Op mobiel (gsm) is alles altijd 100% breed.
+//
 // ============================================================
 
-// breedte per maat. mobiel = altijd volledige breedte (gewoon onder elkaar).
 const WIDTH_MAP: Record<ProjectSize, string> = {
-  S: "md:w-[28%]",
-  M: "md:w-[42%]",
-  L: "md:w-[58%]",
+  S:  "md:w-[28%]",
+  M:  "md:w-[42%]",
+  L:  "md:w-[58%]",
   XL: "md:w-[78%]",
 };
 
 const ALIGN_MAP: Record<ProjectAlign, string> = {
-  left: "md:mr-auto",
+  left:   "md:mr-auto",
   center: "md:mx-auto",
-  right: "md:ml-auto",
+  right:  "md:ml-auto",
 };
+
+// uniforme verticale afstand tussen alle media (projecten, detail, info)
+const GAP = "gap-6";
+
+// ============================================================
+//  5. COMPONENTEN — opmaak van de pagina's
+//     (normaal niet aanpassen)
+// ============================================================
 
 // ------------------------------------------------------------
 //  HEADER
@@ -172,36 +253,35 @@ function Header() {
 }
 
 // ------------------------------------------------------------
-//  PROJECTEN — HOOFDPAGINA
+//  PROJECT RIJ (hoofdpagina)
+//
+//  - desktop: titel verschijnt bij hover NAAST de foto (vaste afstand)
+//  - mobiel:  titel verschijnt bij tap ONDER de foto (volledig leesbaar)
 // ------------------------------------------------------------
-//
-//  - één project per rij
-//  - mobiel: full-width onder elkaar
-//  - bij hover komt de titel NAAST de foto (niet erover)
-//  - geen zoom/transform op de foto
-//  - kleine verticale ruimte tussen projecten
-//
 
 function ProjectRow({ p }: { p: Project }) {
-  const wrapperAlign = ALIGN_MAP[p.align];
-  // titel komt aan de andere kant van de uitlijning (zodat hij in de witruimte staat)
-  const titleSide = p.align === "right" ? "md:-left-3 md:-translate-x-full" : "md:-right-3 md:translate-x-full";
+  // op desktop: titel komt aan de tegenovergestelde kant van de uitlijning
+  // (zodat hij in de witruimte staat) op een VASTE afstand van 16px.
+  const titleSideDesktop =
+    p.align === "right"
+      ? "md:right-auto md:left-0 md:-translate-x-[calc(100%+16px)]"
+      : "md:left-auto md:right-0 md:translate-x-[calc(100%+16px)]";
 
   return (
-    <li className={`w-full ${WIDTH_MAP[p.size]} ${wrapperAlign}`}>
-      <Link
-        to="/projects/$slug"
-        params={{ slug: p.id }}
-        className="group relative block"
-      >
-        <img src={p.cover} alt="" loading="lazy" className="block w-full" />
-        {/* titel verschijnt enkel bij hover, NAAST de foto in de witruimte (op desktop) */}
-        <span
-          className={`pointer-events-none absolute bottom-0 left-0 mt-2 block w-full text-[14px] lowercase tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100
-            md:left-auto md:bottom-2 md:w-auto md:whitespace-nowrap md:text-[15px] ${titleSide}`}
-          style={{ position: "absolute" }}
-        >
-          <span className="block px-1 md:px-3">{p.title}</span>
+    <li className={`w-full ${WIDTH_MAP[p.size]} ${ALIGN_MAP[p.align]}`}>
+      <Link to="/projects/$slug" params={{ slug: p.id }} className="group block">
+        <div className="relative">
+          <img src={p.cover} alt="" loading="lazy" className="block w-full" />
+          {/* desktop overlay: titel naast de foto, op vaste afstand */}
+          <span
+            className={`pointer-events-none absolute bottom-0 hidden md:block whitespace-nowrap text-[17px] lowercase tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 ${titleSideDesktop}`}
+          >
+            {p.title}
+          </span>
+        </div>
+        {/* mobiel: titel ONDER de foto bij tap/hover */}
+        <span className="mt-2 block md:hidden text-[15px] lowercase tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-active:opacity-100">
+          {p.title}
         </span>
       </Link>
     </li>
@@ -211,7 +291,7 @@ function ProjectRow({ p }: { p: Project }) {
 export function ProjectsIndex() {
   return (
     <section className="px-5 pb-32 pt-4">
-      <ul className="flex flex-col gap-3 md:gap-4">
+      <ul className={`flex flex-col ${GAP}`}>
         {projects.map((p) => (
           <ProjectRow key={p.id} p={p} />
         ))}
@@ -236,8 +316,7 @@ export function ProjectDetail({ project }: { project: Project }) {
       <header className="mx-auto mb-10 max-w-2xl text-center">
         <h1 className="text-[18px] md:text-[22px] lowercase tracking-tight">{project.title}</h1>
         <p className="mt-1 text-[13px] lowercase text-muted-foreground">
-          {project.year}
-          {project.location ? ` · ${project.location}` : ""}
+          {project.year}{project.location ? ` · ${project.location}` : ""}
         </p>
         <p className="mx-auto mt-6 max-w-prose whitespace-pre-line text-[15px] leading-relaxed">
           {project.description}
@@ -255,12 +334,9 @@ export function ProjectDetail({ project }: { project: Project }) {
         )}
       </header>
 
-      <div className="flex flex-col gap-3 md:gap-4">
+      <div className={`flex flex-col ${GAP}`}>
         {media.map((m, i) => (
-          <div
-            key={i}
-            className={`w-full md:w-[70%] ${i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}
-          >
+          <div key={i} className={`w-full md:w-[70%] ${i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
             {m.type === "img" ? (
               <img src={m.src} alt="" loading="lazy" className="block w-full" />
             ) : (
@@ -286,7 +362,9 @@ export function ProjectDetail({ project }: { project: Project }) {
 }
 
 // ------------------------------------------------------------
-//  INFO
+//  INFO PAGINA
+//
+//  Foto's krijgen GEEN titel bij hover (zoals gevraagd).
 // ------------------------------------------------------------
 
 export function InfoPage() {
@@ -322,30 +400,19 @@ export function InfoPage() {
         )}
       </div>
 
-      <ul className="flex flex-col gap-3 md:gap-4">
-        {info.photos.map((ph, i) => {
-          const titleSide = ph.align === "right" ? "md:-left-3 md:-translate-x-full" : "md:-right-3 md:translate-x-full";
-          return (
-            <li key={i} className={`group relative w-full ${WIDTH_MAP[ph.size]} ${ALIGN_MAP[ph.align]}`}>
-              <img src={ph.src} alt={ph.caption ?? ""} loading="lazy" className="block w-full" />
-              {ph.caption && (
-                <span
-                  className={`pointer-events-none absolute bottom-0 left-0 block w-full text-[14px] lowercase tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100
-                    md:left-auto md:bottom-2 md:w-auto md:whitespace-nowrap md:text-[15px] ${titleSide}`}
-                >
-                  <span className="block px-1 md:px-3">{ph.caption}</span>
-                </span>
-              )}
-            </li>
-          );
-        })}
+      <ul className={`flex flex-col ${GAP}`}>
+        {info.photos.map((ph, i) => (
+          <li key={i} className={`w-full ${WIDTH_MAP[ph.size]} ${ALIGN_MAP[ph.align]}`}>
+            <img src={ph.src} alt="" loading="lazy" className="block w-full" />
+          </li>
+        ))}
       </ul>
     </section>
   );
 }
 
 // ------------------------------------------------------------
-//  ROOT LAYOUT
+//  ROOT LAYOUT + foutpagina's
 // ------------------------------------------------------------
 
 const queryClient = new QueryClient();
@@ -374,18 +441,13 @@ export function NotFound() {
 
 export function ErrorView({ error, reset }: { error: Error; reset: () => void }) {
   const router = useRouter();
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
+  useEffect(() => { console.error(error); }, [error]);
   return (
     <div className="flex min-h-[60vh] items-center justify-center px-6">
       <div className="text-center">
         <h1 className="text-[16px] lowercase">er ging iets mis</h1>
         <button
-          onClick={() => {
-            router.invalidate();
-            reset();
-          }}
+          onClick={() => { router.invalidate(); reset(); }}
           className="mt-4 underline lowercase"
         >
           opnieuw proberen
@@ -393,8 +455,4 @@ export function ErrorView({ error, reset }: { error: Error; reset: () => void })
       </div>
     </div>
   );
-}
-
-export function RootShellContent({ children }: { children: ReactNode }) {
-  return children;
 }
