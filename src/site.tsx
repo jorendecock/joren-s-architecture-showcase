@@ -236,7 +236,7 @@ const GAP = "gap-6";
 
 function Header() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isProjects = pathname === "/" || pathname.startsWith("/projects");
+  const isProjects = pathname === "/";
   const isInfo = pathname.startsWith("/info");
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur">
