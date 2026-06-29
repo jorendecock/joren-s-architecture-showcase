@@ -210,10 +210,10 @@ export const info = {
 // ============================================================
 
 const WIDTH_MAP: Record<ProjectSize, string> = {
-  S:  "md:w-[28%]",
-  M:  "md:w-[42%]",
-  L:  "md:w-[58%]",
-  XL: "md:w-[78%]",
+  S:  "md:w-[22%]",
+  M:  "md:w-[34%]",
+  L:  "md:w-[46%]",
+  XL: "md:w-[60%]",
 };
 
 const ALIGN_MAP: Record<ProjectAlign, string> = {
@@ -235,15 +235,19 @@ const GAP = "gap-6";
 // ------------------------------------------------------------
 
 function Header() {
+  const router = useRouter();
+  const pathname = router.state.location.pathname;
+  const isProjects = pathname === "/" || pathname.startsWith("/projects");
+  const isInfo = pathname.startsWith("/info");
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur">
       <div className="flex items-baseline justify-between px-5 py-4 text-[15px] md:text-[20px] lowercase tracking-tight">
         <span className="select-none">jorendecock.archi</span>
         <nav className="flex gap-5 md:gap-8">
-          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "nav-active" }}>
+          <Link to="/" className={isProjects ? "nav-active" : ""}>
             projecten
           </Link>
-          <Link to="/info" activeProps={{ className: "nav-active" }}>
+          <Link to="/info" className={isInfo ? "nav-active" : ""}>
             info
           </Link>
         </nav>
@@ -334,9 +338,9 @@ export function ProjectDetail({ project }: { project: Project }) {
         )}
       </header>
 
-      <div className={`flex flex-col ${GAP}`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {media.map((m, i) => (
-          <div key={i} className={`w-full md:w-[70%] ${i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
+          <div key={i} className="w-full">
             {m.type === "img" ? (
               <img src={m.src} alt="" loading="lazy" className="block w-full" />
             ) : (
