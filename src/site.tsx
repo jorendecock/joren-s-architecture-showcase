@@ -235,15 +235,19 @@ const GAP = "gap-6";
 // ------------------------------------------------------------
 
 function Header() {
+  const router = useRouter();
+  const pathname = router.state.location.pathname;
+  const isProjects = pathname === "/" || pathname.startsWith("/projects");
+  const isInfo = pathname.startsWith("/info");
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur">
       <div className="flex items-baseline justify-between px-5 py-4 text-[15px] md:text-[20px] lowercase tracking-tight">
         <span className="select-none">jorendecock.archi</span>
         <nav className="flex gap-5 md:gap-8">
-          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "nav-active" }}>
+          <Link to="/" className={isProjects ? "nav-active" : ""}>
             projecten
           </Link>
-          <Link to="/info" activeProps={{ className: "nav-active" }}>
+          <Link to="/info" className={isInfo ? "nav-active" : ""}>
             info
           </Link>
         </nav>
