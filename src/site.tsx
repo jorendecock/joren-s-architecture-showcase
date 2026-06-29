@@ -334,9 +334,9 @@ export function ProjectDetail({ project }: { project: Project }) {
         )}
       </header>
 
-      <div className={`flex flex-col ${GAP}`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {media.map((m, i) => (
-          <div key={i} className={`w-full md:w-[70%] ${i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"}`}>
+          <div key={i} className="w-full">
             {m.type === "img" ? (
               <img src={m.src} alt="" loading="lazy" className="block w-full" />
             ) : (
