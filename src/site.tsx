@@ -235,8 +235,7 @@ const GAP = "gap-6";
 // ------------------------------------------------------------
 
 function Header() {
-  const router = useRouter();
-  const pathname = router.state.location.pathname;
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isProjects = pathname === "/" || pathname.startsWith("/projects");
   const isInfo = pathname.startsWith("/info");
   return (
