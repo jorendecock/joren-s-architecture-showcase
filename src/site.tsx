@@ -120,7 +120,7 @@ export const projects: Project[] = [
     // videos: ["https://www.youtube.com/embed/XXXXX"],
     // pdfs:   [{ label: "plannen", file: "/pdfs/project-01.pdf" }],
   },
-  { id: "project-02", title: "houten paviljoen", year: 2025, location: "brussel", size: "M", align: "right",
+  { id: "project-02", title: "joren", year: 2025, location: "brussel", size: "M", align: "right",
     cover: DEMO[4], description: DEMO_TEXT, images: DEMO },
   { id: "project-03", title: "betonnen kapel", year: 2024, location: "antwerpen", size: "L", align: "center",
     cover: DEMO[3], description: DEMO_TEXT, images: DEMO },
