@@ -210,10 +210,10 @@ export const info = {
 // ============================================================
 
 const WIDTH_MAP: Record<ProjectSize, string> = {
-  S:  "md:w-[28%]",
-  M:  "md:w-[42%]",
-  L:  "md:w-[58%]",
-  XL: "md:w-[78%]",
+  S:  "md:w-[22%]",
+  M:  "md:w-[34%]",
+  L:  "md:w-[46%]",
+  XL: "md:w-[60%]",
 };
 
 const ALIGN_MAP: Record<ProjectAlign, string> = {
