@@ -283,7 +283,7 @@ function ProjectRow({ p }: { p: Project }) {
           </span>
         </div>
         {/* mobiel: titel ONDER de foto bij tap/hover */}
-        <span className="mt-2 block md:hidden text-[15px] lowercase tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-active:opacity-100">
+        <span className="mt-2 block md:hidden text-[15px] tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-active:opacity-100">
           {p.title}
         </span>
       </Link>
