@@ -317,7 +317,7 @@ export function ProjectDetail({ project }: { project: Project }) {
   return (
     <article className="px-5 pb-32 pt-4">
       <header className="mx-auto mb-10 max-w-2xl text-center">
-        <h1 className="text-[18px] md:text-[22px] lowercase tracking-tight">{project.title}</h1>
+        <h1 className="text-[18px] md:text-[22px] tracking-tight">{project.title}</h1>
         <p className="mt-1 text-[13px] lowercase text-muted-foreground">
           {project.year}{project.location ? ` · ${project.location}` : ""}
         </p>
