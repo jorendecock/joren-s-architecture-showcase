@@ -393,7 +393,7 @@ export function InfoPage() {
         )}
 
         {info.pdfs.length > 0 && (
-          <ul className="mt-3 flex justify-center gap-4 text-[13px] lowercase">
+          <ul className="mt-3 flex justify-center gap-4 text-[13px]">
             {info.pdfs.map((pdf) => (
               <li key={pdf.file}>
                 <a href={pdf.file} target="_blank" rel="noreferrer" className="underline underline-offset-4">
