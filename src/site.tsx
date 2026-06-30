@@ -325,7 +325,7 @@ export function ProjectDetail({ project }: { project: Project }) {
           {project.description}
         </p>
         {project.pdfs && project.pdfs.length > 0 && (
-          <ul className="mt-6 flex justify-center gap-4 text-[13px] lowercase">
+          <ul className="mt-6 flex justify-center gap-4 text-[13px]">
             {project.pdfs.map((pdf) => (
               <li key={pdf.file}>
                 <a href={pdf.file} target="_blank" rel="noreferrer" className="underline underline-offset-4">
