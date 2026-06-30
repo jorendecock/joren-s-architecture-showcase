@@ -1,4 +1,4 @@
-// ============================================================
+    // ============================================================
 //  JOREN DE COCK — VOLLEDIGE WEBSITE IN 1 BESTAND
 // ============================================================
 //
@@ -166,9 +166,9 @@ export const projects: Project[] = [
   { id: "project-17", title: "studio aan het water", year: 2021, size: "S", align: "right",
     cover: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1200&q=80",
     description: DEMO_TEXT, images: DEMO },
-  { id: "project-18", title: "eerste ontwerp", year: 2020, size: "M", align: "left",
+  { id: "project-18", title: "Extentie 1op1/verschaald", year: "Ontwerp 1 - 11102024, size: "M", align: "left",
     cover: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=1400&q=80",
-    description: DEMO_TEXT, images: DEMO },
+    description: "De eerste ontwerpopdracht bestond uit twee delen. In deel één ontwierp ik samen met medestudent Tristen Cremers een extensie die aansloot bij het klooster aan de Hoogstraat, de locatie van ons project. In deel twee werkten we individueel verder: we vertaalden kenmerken van de gezamenlijke extensie naar abstracte, verschaalde vormen. Tegen het einde kregen deze opnieuw een gevoel van schaal door toevoeging van schaalfiguren.", images: DEMO },
 ];
 
 // ============================================================
