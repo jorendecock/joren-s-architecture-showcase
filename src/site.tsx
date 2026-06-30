@@ -277,7 +277,7 @@ function ProjectRow({ p }: { p: Project }) {
           <img src={p.cover} alt="" loading="lazy" className="block w-full" />
           {/* desktop overlay: titel naast de foto, op vaste afstand */}
           <span
-            className={`pointer-events-none absolute bottom-0 hidden md:block whitespace-nowrap text-[17px] lowercase tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 ${titleSideDesktop}`}
+            className={`pointer-events-none absolute bottom-0 hidden md:block whitespace-nowrap text-[17px] tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 ${titleSideDesktop}`}
           >
             {p.title}
           </span>
