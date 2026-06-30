@@ -10,16 +10,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "joren de cock — architectuur" },
+      { title: "joren de cock — architectuur student · ku leuven sint-lucas gent" },
       {
         name: "description",
-        content: "portfolio van joren de cock, architectuurstudent.",
+        content: "architectuur student — ku leuven sint-lucas gent. portfolio van joren de cock.",
       },
-      { property: "og:title", content: "joren de cock — architectuur" },
-      { name: "twitter:title", content: "joren de cock — architectuur" },
-      { name: "description", content: "Joren's Architecture Showcase displays architectural projects and personal information." },
-      { property: "og:description", content: "Joren's Architecture Showcase displays architectural projects and personal information." },
-      { name: "twitter:description", content: "Joren's Architecture Showcase displays architectural projects and personal information." },
+      { property: "og:title", content: "joren de cock — architectuur student · ku leuven sint-lucas gent" },
+      { name: "twitter:title", content: "joren de cock — architectuur student · ku leuven sint-lucas gent" },
+      { name: "description", content: "architectuur student — ku leuven sint-lucas gent. portfolio van joren de cock." },
+      { property: "og:description", content: "architectuur student — ku leuven sint-lucas gent. portfolio van joren de cock." },
+      { name: "twitter:description", content: "architectuur student — ku leuven sint-lucas gent. portfolio van joren de cock." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7a8951ac-ecb7-475d-bb5c-88d58e78584c/id-preview-c8f97bfe--5a76af21-2487-4d57-b2bc-667d0fb2d3da.lovable.app-1782726650697.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7a8951ac-ecb7-475d-bb5c-88d58e78584c/id-preview-c8f97bfe--5a76af21-2487-4d57-b2bc-667d0fb2d3da.lovable.app-1782726650697.png" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -27,6 +27,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
