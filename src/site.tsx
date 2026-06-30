@@ -376,7 +376,7 @@ export function InfoPage() {
   return (
     <section className="px-5 pb-32 pt-4">
       <div className="mx-auto mb-12 max-w-prose text-center">
-        <h1 className="text-[18px] md:text-[22px] lowercase tracking-tight">{info.name}</h1>
+        <h1 className="text-[18px] md:text-[22px] tracking-tight">{info.name}</h1>
         <p className="mt-1 text-[13px] lowercase text-muted-foreground">{info.role}</p>
         <p className="mt-6 whitespace-pre-line text-[15px] leading-relaxed">{info.about}</p>
 
