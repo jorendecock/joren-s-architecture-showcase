@@ -277,13 +277,13 @@ function ProjectRow({ p }: { p: Project }) {
           <img src={p.cover} alt="" loading="lazy" className="block w-full" />
           {/* desktop overlay: titel naast de foto, op vaste afstand */}
           <span
-            className={`pointer-events-none absolute bottom-0 hidden md:block whitespace-nowrap text-[17px] lowercase tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 ${titleSideDesktop}`}
+            className={`pointer-events-none absolute bottom-0 hidden md:block whitespace-nowrap text-[17px] tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 ${titleSideDesktop}`}
           >
             {p.title}
           </span>
         </div>
         {/* mobiel: titel ONDER de foto bij tap/hover */}
-        <span className="mt-2 block md:hidden text-[15px] lowercase tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-active:opacity-100">
+        <span className="mt-2 block md:hidden text-[15px] tracking-tight opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-active:opacity-100">
           {p.title}
         </span>
       </Link>
@@ -317,15 +317,15 @@ export function ProjectDetail({ project }: { project: Project }) {
   return (
     <article className="px-5 pb-32 pt-4">
       <header className="mx-auto mb-10 max-w-2xl text-center">
-        <h1 className="text-[18px] md:text-[22px] lowercase tracking-tight">{project.title}</h1>
-        <p className="mt-1 text-[13px] lowercase text-muted-foreground">
+        <h1 className="text-[18px] md:text-[22px] tracking-tight">{project.title}</h1>
+        <p className="mt-1 text-[13px] text-muted-foreground">
           {project.year}{project.location ? ` · ${project.location}` : ""}
         </p>
         <p className="mx-auto mt-6 max-w-prose whitespace-pre-line text-[15px] leading-relaxed">
           {project.description}
         </p>
         {project.pdfs && project.pdfs.length > 0 && (
-          <ul className="mt-6 flex justify-center gap-4 text-[13px] lowercase">
+          <ul className="mt-6 flex justify-center gap-4 text-[13px]">
             {project.pdfs.map((pdf) => (
               <li key={pdf.file}>
                 <a href={pdf.file} target="_blank" rel="noreferrer" className="underline underline-offset-4">
@@ -376,12 +376,12 @@ export function InfoPage() {
   return (
     <section className="px-5 pb-32 pt-4">
       <div className="mx-auto mb-12 max-w-prose text-center">
-        <h1 className="text-[18px] md:text-[22px] lowercase tracking-tight">{info.name}</h1>
-        <p className="mt-1 text-[13px] lowercase text-muted-foreground">{info.role}</p>
+        <h1 className="text-[18px] md:text-[22px] tracking-tight">{info.name}</h1>
+        <p className="mt-1 text-[13px] text-muted-foreground">{info.role}</p>
         <p className="mt-6 whitespace-pre-line text-[15px] leading-relaxed">{info.about}</p>
 
         {info.links.length > 0 && (
-          <ul className="mt-6 flex justify-center gap-4 text-[13px] lowercase">
+          <ul className="mt-6 flex justify-center gap-4 text-[13px]">
             {info.links.map((l) => (
               <li key={l.url}>
                 <a href={l.url} target="_blank" rel="noreferrer" className="underline underline-offset-4">
@@ -393,7 +393,7 @@ export function InfoPage() {
         )}
 
         {info.pdfs.length > 0 && (
-          <ul className="mt-3 flex justify-center gap-4 text-[13px] lowercase">
+          <ul className="mt-3 flex justify-center gap-4 text-[13px]">
             {info.pdfs.map((pdf) => (
               <li key={pdf.file}>
                 <a href={pdf.file} target="_blank" rel="noreferrer" className="underline underline-offset-4">
