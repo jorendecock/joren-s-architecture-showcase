@@ -163,12 +163,14 @@ export const projects: Project[] = [
   { id: "project-16", title: "kustvilla", year: 2021, location: "knokke", size: "L", align: "center",
     cover: "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=1600&q=80",
     description: DEMO_TEXT, images: DEMO },
-  { id: "project-17", title: "studio aan het water", year: 2021, size: "S", align: "right",
+  { id: "project-17", title: "Bar", year: "Ontwerp I - 29102024" , size: "L", align: "right",
     cover: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1200&q=80",
-    description: DEMO_TEXT, images: DEMO },
-  { id: "project-18", title: "Extentie 1op1/verschaald", year: "Ontwerp 1 - 11102024", size: "M", align: "left",
+    description: "In de binnentuin van het klooster in de Hoogstraat in Gent ontworpen we een bar. Daarbij was het belangrijk om, via observaties van de tuin, bepaalde kenmerken te selecteren waarmee je het ontwerp van de bar kon laten samenvloeien met de bestaande structuur, zodat het geheel past binnen het bestaande gebouw. Ik heb ervoor gekozen om mijn bar in een van de hoeken van de binnentuin te plaatsen. Als vertrekpunt gebruikte ik de afmetingen tussen elementen op de gevel, en nam die over als basis voor de afmetingen van mijn ontwerp. Daarnaast heb ik twee witte lijnen die over de volledige gevel van het binnenhof lopen, doorgetrokken in het ontwerp van mijn bar, zodat er een visuele continuïteit ontstaat tussen oud en nieuw.", 
+    images: DEMO },
+  { id: "project-18", title: "Extentie 1op1/verschaald", year: "Ontwerp I - 11102024", size: "M", align: "left",
     cover: "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?w=1400&q=80",
-    description: "De eerste ontwerpopdracht bestond uit twee delen. In deel één ontwierp ik samen met medestudent Tristen Cremers een extensie die aansloot bij het klooster aan de Hoogstraat, de locatie van ons project. In deel twee werkten we individueel verder: we vertaalden kenmerken van de gezamenlijke extensie naar abstracte, verschaalde vormen. Tegen het einde kregen deze opnieuw een gevoel van schaal door toevoeging van schaalfiguren.", images: DEMO },
+    description: "De eerste ontwerpopdracht bestond uit twee delen. In deel één ontwierp ik samen met medestudent Tristen Cremers een extensie die aansloot bij het klooster aan de Hoogstraat, de locatie van ons project. In deel twee werkten we individueel verder: we vertaalden kenmerken van de gezamenlijke extensie naar abstracte, verschaalde vormen. Tegen het einde kregen deze opnieuw een gevoel van schaal door toevoeging van schaalfiguren.",
+    images: DEMO },
 ];
 
 // ============================================================
