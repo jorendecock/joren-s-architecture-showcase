@@ -184,18 +184,18 @@ export const projects: Project[] = [
 // ============================================================
 
 export const info = {
-  name: "joren de cock",
-  role: "architectuur student",
+  name: "Joren De Cock",
+  role: "Joren De Cock - Architectuur student - KU Leuven Sint-Lucas Gent",
   about:
-    "ik ben joren de cock, architectuurstudent. op deze website verzamel ik werk uit mijn opleiding — projecten, schetsen, modellen en onderzoek.\n\npas deze tekst aan in src/site.tsx.",
+    "Op deze website verzamel ik verschillende projecten die ik als architect in opleiding aan de KU Leuven heb gemaakt, zowel binnen als buiten de opleiding. Je kan het zien als een soort portfolio van werk waar ik trots op ben. Bij sommige projecten vloeiden er meer uren en zweet in dan bij andere. Naast schoolopdrachten vind je hier misschien ook persoonlijke projecten die voortkomen uit mijn eigen interesse. Die hebben misschien niet rechtstreeks te maken met mijn opleiding, maar hebben wel altijd een link met de richting architectuur. Hoewel ik deze site in de eerste plaats voor mezelf heb opgebouwd, is iedereen welkom om een kijkje te nemen.",
   photos: [
     { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1400&q=80", size: "M" as ProjectSize, align: "left" as ProjectAlign },
     { src: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=1400&q=80", size: "L" as ProjectSize, align: "right" as ProjectAlign },
     { src: "https://images.unsplash.com/photo-1542359649-31e03cd4d909?w=1400&q=80", size: "S" as ProjectSize, align: "center" as ProjectAlign },
   ],
   links: [
-    { label: "instagram", url: "https://www.instagram.com/" },
-    { label: "email", url: "mailto:hello@jorendecock.com" },
+    { label: "instagram", url: "https://www.instagram.com/jorendecock" },
+    { label: "email", url: "mailto:decock.joren@gmail.com" },
   ],
   pdfs: [] as { label: string; file: string }[],
 };
