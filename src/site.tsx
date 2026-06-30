@@ -381,7 +381,7 @@ export function InfoPage() {
         <p className="mt-6 whitespace-pre-line text-[15px] leading-relaxed">{info.about}</p>
 
         {info.links.length > 0 && (
-          <ul className="mt-6 flex justify-center gap-4 text-[13px] lowercase">
+          <ul className="mt-6 flex justify-center gap-4 text-[13px]">
             {info.links.map((l) => (
               <li key={l.url}>
                 <a href={l.url} target="_blank" rel="noreferrer" className="underline underline-offset-4">
