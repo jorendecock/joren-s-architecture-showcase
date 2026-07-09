@@ -81,7 +81,7 @@ export type ProjectAlign = "left" | "center" | "right";
 export interface Project {
   id: string;
   title: string;
-  year: number;
+  year: string | number;
   location?: string;
   size: ProjectSize;
   align: ProjectAlign;
